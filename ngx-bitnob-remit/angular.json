@@ -1,0 +1,38 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-bitnob": {
+      "projectType": "library",
+      "root": "projects/ngx-bitnob",
+      "sourceRoot": "projects/ngx-bitnob/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-bitnob/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-bitnob/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-bitnob/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-bitnob/src/test.ts",
+            "tsConfig": "projects/ngx-bitnob/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-bitnob/karma.conf.js"
+          }
+        }
+      }
+    }
+  }
+}
